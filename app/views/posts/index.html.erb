@@ -1,0 +1,11 @@
+<% @posts.each do |p| %>
+  <li><%= link_to p.title, post_path(p.slug)  %></li>
+  <% if user_signed_in? %>
+    <%= link_to 'edit', edit_post_path(p) %>
+    <%= button_to 'destroy', post_path(p), method: :delete, confirm: 'Sure?' %>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'new post', new_post_path %>
+<% end %>

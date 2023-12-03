@@ -1,0 +1,23 @@
+<div class="container">
+  <%= form_with model: post do |f| %>
+    <% if f.object.errors.any? %>
+      <% f.object.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :body_markdown %>
+    <%= f.text_area :body_markdown %>
+
+    <%= f.label :category %>
+    <%= f.select :category, Post.categories.keys.map { |key| [key.humanize, key] } %>
+
+    <%= f.label :published_at %>
+    <%= f.datetime_local_field :published_at %>
+
+    <%= f.submit 'save' %>
+  <% end %>
+</div>

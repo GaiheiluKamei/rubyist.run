@@ -1,0 +1,4 @@
+<%= raw @post.body_html %>
+<% if user_signed_in? %>
+  <%= link_to 'edit', edit_post_path(@post.slug) %>
+<% end %>

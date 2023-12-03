@@ -69,3 +69,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "redcarpet", "~> 3.6"
+
+gem "faker", "~> 3.2"
