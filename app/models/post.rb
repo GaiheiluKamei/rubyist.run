@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   before_create :set_slug
   before_save :set_body_html
 
+  enum :category, [:articles, :codewar, :tips], default: :articles
+
   default_scope { where("published_at <= ?", Time.current) }
 
   def markdown_to_html(text)
