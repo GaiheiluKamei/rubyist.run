@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if current_user
       @posts = current_user.posts
     else
-      @posts = Post.all
+      @posts = Post.published
     end
   end
 
@@ -46,7 +46,11 @@ class PostsController < ApplicationController
   private
 
     def set_post
-      @post = Post.find_by(slug: params[:slug])
+      if current_user
+        @post = Post.find_by(slug: params[:slug])
+      else
+        @post = Post.published.find_by(slug: params[:slug])
+      end
     end
 
     def post_params

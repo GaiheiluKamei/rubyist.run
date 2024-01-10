@@ -6,7 +6,7 @@ user = User.create!(email: 'gk@example.com', password: 'password')
 
 10.times do |i|
   Post.create!(
-    title: Faker::Lorem.sentence,
+    title: Faker::Book.title,
     body_markdown: Faker::Markdown.sandwich(sentences: 10, repeat: 3),
     published_at: Time.current,
     user: user,

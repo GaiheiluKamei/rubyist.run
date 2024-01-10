@@ -9,23 +9,25 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :title, :body_markdown, presence: true
-  before_create :set_slug
+  validates_uniqueness_of :slug
+  before_validation :set_slug, if: :title_changed?
   before_save :set_body_html
 
   enum :category, [:articles, :codewar, :tips], default: :articles
 
-  default_scope { where("published_at <= ?", Time.current) }
+  scope :published, ->{ where("published_at <= ?", Time.current) }
 
   def markdown_to_html
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-                                       space_after_headers: true)
+                                       space_after_headers: true,
+                                       fenced_code_blocks: true)
     markdown.render(body_markdown).html_safe
   end
 
   private
 
     def set_slug
-      self.slug = title.strip.gsub(/[[:punct:]]/, '-').downcase unless slug.present?
+      self.slug = title.parameterize
     end
 
     def set_body_html
