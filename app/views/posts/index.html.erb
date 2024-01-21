@@ -1,5 +1,5 @@
 <% @posts.each do |p| %>
-  <li><%= link_to p.title, post_path(p.slug)  %></li>
+  <li><span class='date'><%= p.created_at.strftime("%Y-%m-%d") %></span>  <%= link_to p.title, post_path(p.slug) %></li>
   <% if user_signed_in? %>
     <%= link_to 'edit', edit_post_path(p) %>
     <%= button_to 'destroy', post_path(p), method: :delete, confirm: 'Sure?' %>

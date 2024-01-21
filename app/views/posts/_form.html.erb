@@ -9,8 +9,10 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
 
-    <%= f.label :body_markdown %>
-    <%= f.text_area :body_markdown %>
+    <div class="markdown-content">
+      <%= f.label :body_markdown %>
+      <%= f.text_area :body_markdown %>
+    </div>
 
     <%= f.label :category %>
     <%= f.select :category, Post.categories.keys.map { |key| [key.humanize, key] } %>
