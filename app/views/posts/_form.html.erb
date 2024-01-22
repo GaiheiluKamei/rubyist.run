@@ -1,0 +1,36 @@
+<div class="container">
+  <%= form_with model: post do |f| %>
+    <% if f.object.errors.any? %>
+      <% f.object.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="markdown-content form-group">
+      <%= f.label :body_markdown %>
+      <%= f.text_area :body_markdown, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :category %>
+      <%#
+        f.select 方法接受两个哈希表作为参数，第一个哈希表用于选择选项，第二个哈希表用于 HTML 选项。
+        select(object, method, choices = nil, options = {}, html_options = {}, &block)
+        https://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-select
+      %>
+      <%= f.select :category, Post.categories.keys.map { |key| [key.humanize, key] }, {}, {class: 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :published_at %>
+      <%= f.datetime_local_field :published_at, value: nil, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'save', class: 'btn btn-primary save' %>
+  <% end %>
+</div>

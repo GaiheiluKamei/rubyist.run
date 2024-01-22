@@ -1,0 +1,6 @@
+<%= raw @post.body_html %>
+<% if user_signed_in? %>
+  <div class="edit-btn">
+    <%= link_to 'edit', edit_post_path(@post.slug), class: 'btn btn-primary' %>
+  </div>
+<% end %>

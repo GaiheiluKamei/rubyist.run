@@ -1,0 +1,12 @@
+<% @posts.each do |p| %>
+  <li class="home-li">
+    <span class='date'><%= p.created_at.strftime("%Y-%m-%d") %></span>
+    <%= link_to p.title, post_path(p.slug) %>
+    <% if user_signed_in? %>
+      <div class="btn-group">
+        <%= link_to 'edit', edit_post_path(p), class: 'btn btn-primary' %>
+        <%= button_to 'destroy', post_path(p), method: :delete, form: { data: { turbo_confirm: 'Really?' } }, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+  </li>
+<% end %>

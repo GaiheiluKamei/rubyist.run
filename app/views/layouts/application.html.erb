@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyistRun</title>
+    <title>Rubyist Run</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,27 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <%= link_to image_tag("logo.png", size: '32'), root_path %>
+      <p>RUBYIST.RUN</p>
+    </header>
+    <main class="container">
+      <% if user_signed_in? %>
+        <div class="flex-container">
+          <%= link_to 'new post', new_post_path, class: 'btn btn-primary' %>
+          <%= button_to 'log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary logout' %>
+        </div>
+      <% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>© <%= Time.now.year %> rubyist.run</p>
+      <%= link_to image_tag('github.svg', size: '16'), 'https://github.com/GaiheiluKamei/rubyist.run', target: '_blank' %>
+      <%= mail_to 'x@rubyist.run' do %>
+        <%= image_tag('email.png', size: '16') %>
+      <% end %>
+    </footer>
   </body>
 </html>
