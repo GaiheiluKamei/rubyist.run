@@ -213,6 +213,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    rouge (4.2.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.15.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   rails (~> 7.1.2)
   redcarpet (~> 3.6)
   redis (>= 4.0.1)
+  rouge (~> 4.2)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
