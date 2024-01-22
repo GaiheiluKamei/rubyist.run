@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyistRun</title>
+    <title>Rubyist Run</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,10 @@
     </header>
     <main class="container">
       <% if user_signed_in? %>
-        <%= button_to 'log out', destroy_user_session_path, method: :delete %>
+        <div class="flex-container">
+          <%= link_to 'new post', new_post_path, class: 'btn btn-primary' %>
+          <%= button_to 'log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary logout' %>
+        </div>
       <% end %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

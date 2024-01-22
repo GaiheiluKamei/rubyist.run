@@ -1,12 +1,19 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
 body {
     font-family: Inter, Helvetica, sans-serif;
     min-height: 100vh;
     background-color: #07071d;
+    color: #d1d5db;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr auto 1fr;
-    /*color: #e3e3e8;*/
-    color: #d1d5db;
 }
 
 .container {
@@ -20,19 +27,20 @@ body {
 a {
     text-decoration: none;
     color: #DC2626;
-    /*color: #DE3F24;*/
 }
 
 a:hover {
     color: #BB1F1F;
 }
 
+/* Header */
 header {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0;
     grid-area: 1 / 2 / 2 / 3;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 header a {
@@ -45,6 +53,7 @@ header p {
     font-weight: bold;
 }
 
+/* Footer */
 footer {
     display: flex;
     align-items: center;
@@ -52,8 +61,7 @@ footer {
     grid-area: 3 / 2 / 4 / 3;
     font-size: 16px;
     color: #94a3b8;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
 footer a {
@@ -61,16 +69,103 @@ footer a {
     margin-left: 16px;
 }
 
+/* Form */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control, .custom-select, textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea {
+    min-height: 600px;
+}
+
+/* Buttons */
+.btn, input[type="submit"] {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-primary, input[type="submit"] {
+    color: #fff;
+    background-color: #DC2626;
+    border-color: #DC2626;
+}
+
+.save, input[type="submit"] {
+    margin: 0 auto;
+    display: flex;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-end; /* 将按钮推到右侧 */
+    margin-bottom: 32px;
+}
+
+/* logout */
+.logout {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-left: 16px;
+    border: 1px solid #ced4da;
+    background-color: #94a3b8;
+    color: #2E2F30;
+}
+
+.btn-danger {
+    border: 1px solid #ced4da;
+    background-color: #94a3b8;
+}
+
+/* 使 li 标签的元素和 btn-group 的按钮在同一直线上 */
 li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 将按钮推到右侧 */
+    margin-bottom: 16px;
     list-style: none;
-}
-
-li a {
-    font-size: 16px;
-}
-
-span.date {
     font-size: 16px;
     color: #94a3b8;
-    margin-right: 10px;
+}
+
+/* 调整按钮之间的间距 */
+.btn-group {
+    display: flex;
+    align-items: center;
+}
+
+/* 将按钮推到右侧 */
+.btn-group .btn {
+    margin-left: 10px; /* 调整按钮之间的间距 */
 }
