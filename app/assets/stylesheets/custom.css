@@ -18,8 +18,8 @@ body {
 
 .container {
     grid-area: 2 / 2 / 3 / 3;
-    font-size: 22.5px;
-    line-height: 39.375px;
+    font-size: 21px;
+    line-height: 36px;
     text-align: start;
     letter-spacing: normal;
 }
@@ -67,6 +67,19 @@ footer {
 footer a {
     height: 16px;
     margin-left: 16px;
+}
+
+/* Show title */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.title p {
+    font-size: 16px;
+    color: #94a3b8;
 }
 
 /* Form */

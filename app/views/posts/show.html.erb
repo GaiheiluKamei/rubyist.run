@@ -1,3 +1,7 @@
+<div class="title">
+  <h1><%= @post.title %></h1>
+  <p><%= @post.created_at.strftime('%B %d, %Y') %></p>
+</div>
 <%= raw @post.body_html %>
 <% if user_signed_in? %>
   <div class="edit-btn">
